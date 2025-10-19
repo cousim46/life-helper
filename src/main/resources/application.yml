@@ -1,0 +1,9 @@
+spring:
+  ai:
+    openai:
+      api-key: ${OPEN_AI_KEY}
+sms:
+  key : ${SMS_KEY}
+  secret_key : ${SMS_SECRET_KEY}
+  sender : ${SENDER_NUMBER}
+  receiver : ${RECEIVER_NUMBER}

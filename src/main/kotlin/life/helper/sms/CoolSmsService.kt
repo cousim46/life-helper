@@ -16,10 +16,14 @@ class CoolSmsService(
   @Value("\${sms.receiver}")
   private val receiver: String,
 ) : SmsService {
+
   override fun send(message: String?) {
     val solapiClient = SolapiClient.createInstance(smsKey, smsSecretKey)
-    val message = Message(from = sender, to = receiver, text = message)
-    solapiClient.send(message)
+    val receiverPhoneNumbers = receiver.split(",")
+    receiverPhoneNumbers.forEach { phoneNumber ->
+      val message = Message(from = sender, to = phoneNumber, text = message)
+      solapiClient.send(message)
+    }
 
   }
 }

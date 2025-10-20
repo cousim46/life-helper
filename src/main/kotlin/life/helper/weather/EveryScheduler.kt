@@ -13,7 +13,7 @@ data class EveryScheduler(
   private val smsService: SmsService
 ) {
 
-  @Scheduled(cron = "0 0 18 * * *")
+  @Scheduled(cron = "0 0 6 * * *")
   fun everyWeather() {
     val get = answerService.get(LocalDate.now().dayType())
     print(get?.answer())
